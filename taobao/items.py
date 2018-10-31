@@ -9,9 +9,10 @@ import scrapy
 
 
 class TaobaoItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    sku = scrapy.Field()
+    title = scrapy.Field()
+    property = scrapy.Field()
+    descript = scrapy.Field()
 
 
 class ProxyItem(scrapy.Item):

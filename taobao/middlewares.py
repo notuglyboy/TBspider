@@ -36,20 +36,29 @@ class windowd_pool:
 
 
 class TaobaoDownloaderMiddleware(object):
+    replace_lazy_script = '''
+        var img_array = document.getElementsByTagName('img');
+        for(var img_item of img_array){
+            var img_src = img_item.getAttribute('data-ks-lazyload');
+            if(img_src != null){
+                img_item.setAttribute('src', img_src);
+            }
 
+        }
+    '''
     def __init__(self):
         self.chrome_options = Options()
-        #self.chrome_options.add_argument('--headless')
-        #self.chrome_options.add_argument('--disable-gpu')
+        self.chrome_options.add_argument('--headless')
+        self.chrome_options.add_argument('--disable-gpu')
 
         #self.chrome_options.add_argument("--proxy-server=http://171.221.239.11:808")
         self.browser = webdriver.Chrome(chrome_options=self.chrome_options)
-        self.wait = WebDriverWait(self.browser, 5)
+        self.wait = WebDriverWait(self.browser, 20)
         self.conn = redis.StrictRedis(host='127.0.0.1', port=6379)
         self.proxy_list = list(self.conn.hgetall('proxyip').keys())
         self.action = ActionChains(self.browser)
-        self.windows_poll = windowd_pool(self.browser)
         time.sleep(6)
+        self.windows_poll = windowd_pool(self.browser)
 
     def get_random_proxy(self):
         list_len = len(self.proxy_list)
@@ -58,16 +67,17 @@ class TaobaoDownloaderMiddleware(object):
 
     @classmethod
     def from_crawler(cls, crawler):
-        s = cls()
-        crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
-        return s
+        if crawler.spider.name == 'taobao':
+            s = cls()
+            crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
+            return s
 
     def process_request(self, request, spider):
-
         if spider.name in ('taobao', ):
+            random_time = random.randint(1, 10)
+            time.sleep(random_time)
             windows_handle = self.windows_poll.get_windows()
             self.browser.switch_to.window(windows_handle)
-            #self.action.key_down(Keys.CONTROL).send_keys('t').key_up(Keys.CONTROL).perform()
             self.browser.get(request.url)
             if request.meta.get('loop_category', None):
                 cateitem = self.browser.find_element_by_xpath('/html/body/div[4]/div[1]/div[1]/div[1]/div/ul/li')
@@ -75,9 +85,15 @@ class TaobaoDownloaderMiddleware(object):
                 self.action.perform()
                 time.sleep(2)
                 self.wait.until(lambda x: x.find_elements_by_xpath('/html/body/div[4]/div[1]/div[1]/div[1]/div/div/div[1]/div[1]/div[1]/p/a[1]'))
-
             elif request.meta.get('loop_goods', None):
                 self.wait.until(lambda x: x.find_elements_by_xpath('//*[@id="listsrp-itemlist"]'))
+            elif request.meta.get('get_data', None):
+                self.wait.until(lambda x: x.find_elements_by_xpath('//*[@id="description"]/div'))
+                bottom = self.browser.find_element_by_xpath('//*[@class="tb-price-spec"]')
+                self.action.move_to_element(bottom)
+                self.action.perform()
+                self.browser.execute_script(self.replace_lazy_script)
+                time.sleep(2)
             else:
                 try:
                     '''
@@ -95,9 +111,7 @@ class TaobaoDownloaderMiddleware(object):
                     return request
             page_source = self.browser.page_source
             self.windows_poll.release_windows(windows_handle)
-            return HtmlResponse(url=request.url, body=self.browser.page_source,
-                                        request=request, status=200, encoding='utf-8')
-
+            return HtmlResponse(url=request.url, body=page_source, request=request, status=200, encoding='utf-8')
 
     def process_response(self, request, response, spider):
         return response

@@ -77,8 +77,12 @@ ITEM_PIPELINES = {
 SPLASH_URL = 'http://192.168.3.14:8050/'
 DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
 HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
-DOWNLOAD_TIMEOUT = 10
+#DOWNLOAD_TIMEOUT = 30
 RETRY_ENABLED = False
+
+DEFAULT_REQUEST_HEADERS = {
+    'User-Agent': 'Mozilla/5.0(compatible;MSIE 9.0; Windows NT 6.1; Trident/5.0)'
+}
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
