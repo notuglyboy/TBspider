@@ -40,10 +40,7 @@ class TaobaoDownloaderMiddleware(object):
         var img_array = document.getElementsByTagName('img');
         for(var img_item of img_array){
             var img_src = img_item.getAttribute('data-ks-lazyload');
-            if(img_src != null){
-                img_item.setAttribute('src', img_src);
-            }
-
+            if(img_src != null){img_item.setAttribute('src', img_src);}
         }
     '''
     def __init__(self):

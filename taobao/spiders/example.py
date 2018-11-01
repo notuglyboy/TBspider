@@ -100,19 +100,56 @@ class ProxySpider(scrapy.Spider):
 class splashSpider(scrapy.Spider):
     name = 'splash'
     root_url = 'https://www.taobao.com/'
-    goods_url = 'https://item.taobao.com/item.htm?spm=2013.1.20141001.1.e5796eebicshgg&id=578175958491&scm=1007.12144.95220.42296_0&pvid=cc4e5abc-9aaa-43cf-bb08-db40454212af&utparam=%7B%22x_hestia_source%22%3A%2242296%22%2C%22x_object_type%22%3A%22item%22%2C%22x_mt%22%3A0%2C%22x_src%22%3A%2242296%22%2C%22x_pos%22%3A1%2C%22x_pvid%22%3A%22cc4e5abc-9aaa-43cf-bb08-db40454212af%22%2C%22x_object_id%22%3A578175958491%7D'
+    #goods_url = 'https://item.taobao.com/item.htm?spm=2013.1.20141001.1.e5796eebicshgg&id=578175958491&scm=1007.12144.95220.42296_0&pvid=cc4e5abc-9aaa-43cf-bb08-db40454212af&utparam=%7B%22x_hestia_source%22%3A%2242296%22%2C%22x_object_type%22%3A%22item%22%2C%22x_mt%22%3A0%2C%22x_src%22%3A%2242296%22%2C%22x_pos%22%3A1%2C%22x_pvid%22%3A%22cc4e5abc-9aaa-43cf-bb08-db40454212af%22%2C%22x_object_id%22%3A578175958491%7D'
+    goods_url = 'https://item.taobao.com/item.htm?spm=a219r.lmn002.14.1.1796212d1UPLOf&id=575671830895&ns=1&abbucket=6'
     goods_list_url = 'https://s.taobao.com/list?spm=a21bo.2017.201867-links-0.19.5a8f11d9cw80zP&q=%E5%8D%8A%E8%BA%AB%E8%A3%99&cat=16&seller_type=taobao&oetag=6745&source=qiangdiao'
 
     script = """
              function main(splash, args)
-                 
+                 local replace_lazy_src = [[
+                    var img_array = document.getElementsByTagName('img');
+                    for(var img_item of img_array){
+                        var img_src = img_item.getAttribute('data-ks-lazyload');
+                        if(img_src != null){img_item.setAttribute('src', img_src);}
+                    }
+                 ]]
+
+                 local waitElement = [[
+                     function main(splash) {
+                    function waitElement(func, selector, timeout){
+                        _interval = 20;
+                        _timeout = timeout || 0;
+                        var _times = (_timeout/_interval) || -1;
+                        _self = document.querySelector(selector);
+                        _iIntervalID = 0;
+                        if(_self){func&& func.call(this);}
+                        else{
+                            _iIntervalID = setInterval(function(){
+                                if(!_times){clearInterval(_iIntervalID);func&& func.call(_self);}
+                                _times <= 0 || _times--;
+                                _self = document.querySelector(selector);
+                                if(_self){func&& func.call(_self);clearInterval(_iIntervalID);}
+                            }, _interval);
+                        }
+                        return _self;
+                     };
+                     waitElement(function(){
+                        splash.set('result', 'asd');
+                        splash.resume();
+                     }, '%s',30000)
+                    }
+                 ]]
 
                  splash:go(args.url)
                  if(args.action == 'get_data') then
                     local script = string.format(waitElement,'#J_DivItemDesc img')
                     local result, error = splash:wait_for_resume(script)
+                    splash:runjs(replace_lazy_src)
+                    splash:wait(4)
                  elseif(args.action == 'loop_goods') then
-                    splash:wait(5)
+                    local script = string.format(waitElement,'#listsrp-itemlist')
+                    local result, error = splash:wait_for_resume(script)
+                    --splash:wait(5)
                  elseif(args.action == 'loop_category') then
                     print('lopp category')
                  end
@@ -149,8 +186,17 @@ class splashSpider(scrapy.Spider):
                 property_value_str = '%s;%s' % (property_value_str, value)
                 sku_map_str = sku_map_str.replace(sku_key, sku_str)
             property_dict[property_key] = property_value_str
+
+        url_list = []
+        for img_url_item in response.xpath('//*[@id="J_UlThumb"]/li'):
+            url = img_url_item.xpath('.//div/a/img/@src').extract()[0]
+            print(url)
+            url_list.append(url.replace('50x50', '400x400'))
+
+        goods_item['img_url'] = str(url_list)
         goods_item['property'] = property_dict
-        goods_item['sku'] = sku_map_str.replace('\"', '\'')
+        #goods_item['sku'] = sku_map_str.replace('\"', '\'')
+        goods_item['sku'] = json.loads(sku_map_str)
         descript = response.xpath('//*[@id="description"]').extract()[0]
         goods_item['descript'] = descript.strip().replace('\"', '\'')
         yield goods_item

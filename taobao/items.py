@@ -13,6 +13,7 @@ class TaobaoItem(scrapy.Item):
     title = scrapy.Field()
     property = scrapy.Field()
     descript = scrapy.Field()
+    img_url = scrapy.Field()
 
 
 class ProxyItem(scrapy.Item):

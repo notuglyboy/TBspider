@@ -81,7 +81,7 @@ HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
 RETRY_ENABLED = False
 
 DEFAULT_REQUEST_HEADERS = {
-    'User-Agent': 'Mozilla/5.0(compatible;MSIE 9.0; Windows NT 6.1; Trident/5.0)'
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36'
 }
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html

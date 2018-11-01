@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9bbd1ce6-22e8-4f8f-a936-65fe695888a3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/category.json" afterPath="$PROJECT_DIR$/category.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/goods.html" afterPath="$PROJECT_DIR$/goods.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/goods.json" afterPath="$PROJECT_DIR$/goods.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taobao/items.py" afterPath="$PROJECT_DIR$/taobao/items.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taobao/middlewares.py" afterPath="$PROJECT_DIR$/taobao/middlewares.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taobao/pipelines.py" afterPath="$PROJECT_DIR$/taobao/pipelines.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taobao/settings.py" afterPath="$PROJECT_DIR$/taobao/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taobao/spiders/example.py" afterPath="$PROJECT_DIR$/taobao/spiders/example.py" />
     </list>
@@ -33,8 +31,8 @@
       <file leaf-file-name="example.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/taobao/spiders/example.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="107" column="17" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
+            <state relative-caret-position="22">
+              <caret line="190" column="48" selection-start-line="190" selection-start-column="48" selection-end-line="190" selection-end-column="48" />
               <folding>
                 <element signature="e#24#35#0" expanded="true" />
               </folding>
@@ -42,11 +40,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="category.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/category.json">
+      <file leaf-file-name="all.log" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/all.log">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="goods.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/goods.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="goods.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/goods.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="614">
+              <caret line="0" column="14050" selection-start-line="0" selection-start-column="14050" selection-end-line="0" selection-end-column="14745" />
               <folding />
             </state>
           </provider>
@@ -56,17 +74,7 @@
         <entry file="file://$PROJECT_DIR$/taobao/items.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="242">
-              <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="goods.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/goods.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -75,8 +83,8 @@
       <file leaf-file-name="pipelines.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taobao/pipelines.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+            <state relative-caret-position="264">
+              <caret line="14" column="53" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
               <folding>
                 <element signature="e#207#218#0" expanded="true" />
               </folding>
@@ -87,8 +95,8 @@
       <file leaf-file-name="middlewares.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taobao/middlewares.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="132" column="107" selection-start-line="132" selection-start-column="44" selection-end-line="132" selection-end-column="107" />
+            <state relative-caret-position="1540">
+              <caret line="82" column="28" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
               <folding>
                 <element signature="e#169#195#0" expanded="true" />
               </folding>
@@ -99,8 +107,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taobao/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="82" column="27" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="27" />
+            <state relative-caret-position="250">
+              <caret line="75" column="1" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -115,11 +123,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="D:/python/Python3.5/Lib/site-packages/scrapy/http/response/__init__.py" />
-        <option value="$PROJECT_DIR$/taobao/items.py" />
         <option value="$PROJECT_DIR$/goods.html" />
-        <option value="$PROJECT_DIR$/taobao/middlewares.py" />
         <option value="$PROJECT_DIR$/taobao/pipelines.py" />
         <option value="$PROJECT_DIR$/category.json" />
+        <option value="$PROJECT_DIR$/taobao/middlewares.py" />
+        <option value="$PROJECT_DIR$/taobao/items.py" />
         <option value="$PROJECT_DIR$/goods.json" />
         <option value="$PROJECT_DIR$/taobao/settings.py" />
         <option value="$PROJECT_DIR$/taobao/spiders/example.py" />
@@ -133,8 +141,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-34" />
-    <option name="y" value="89" />
+    <option name="x" value="23" />
+    <option name="y" value="41" />
     <option name="width" value="1665" />
     <option name="height" value="947" />
   </component>
@@ -220,7 +228,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../MyShop" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="D:\env\npm\node.exe" />
   </component>
@@ -448,10 +456,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-34" y="89" width="1665" height="947" extended-state="0" />
-    <editor active="true" />
+    <frame x="23" y="41" width="1665" height="947" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24954462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24954462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -500,16 +508,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/taobao/spiders/example.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-          <folding>
-            <element signature="e#24#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/taobao/items.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -847,110 +845,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taobao/pipelines.py">
+    <entry file="file://$PROJECT_DIR$/taobao/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
-          <folding>
-            <element signature="e#207#218#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/all.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/category.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="22" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/goods.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2420">
+        <state relative-caret-position="66">
           <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taobao/pipelines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="14" column="53" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
           <folding>
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#p#3;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#1;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#2;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#3;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#4;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#6;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#8;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#9;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#10;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#11;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#12;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#13;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#14;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#15;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#16;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#17;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#18;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#19;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#20;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#21;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#22;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#23;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#24;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#25;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#26;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#27;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#28;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#29;n#p#4;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="e#207#218#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taobao/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taobao/items.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/taobao/middlewares.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="132" column="107" selection-start-line="132" selection-start-column="44" selection-end-line="132" selection-end-column="107" />
+        <state relative-caret-position="1540">
+          <caret line="82" column="28" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
           <folding>
             <element signature="e#169#195#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taobao/settings.py">
+    <entry file="file://$PROJECT_DIR$/taobao/items.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="82" column="27" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="27" />
+        <state relative-caret-position="242">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/goods.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state relative-caret-position="614">
+          <caret line="0" column="14050" selection-start-line="0" selection-start-column="14050" selection-end-line="0" selection-end-column="14745" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taobao/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="75" column="1" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/taobao/spiders/example.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="107" column="17" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
+        <state relative-caret-position="22">
+          <caret line="190" column="48" selection-start-line="190" selection-start-column="48" selection-end-line="190" selection-end-column="48" />
           <folding>
             <element signature="e#24#35#0" expanded="true" />
           </folding>
