@@ -56,6 +56,7 @@ DOWNLOADER_MIDDLEWARES = {
     'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 543,
     'taobao.middlewares.ProxyDownloaderMiddleware': 546,
     'taobao.middlewares.TaobaoDownloaderMiddleware': 540,
+    'taobao.middlewares.LocalDataMiddleware': 820,
     'scrapy_splash.SplashCookiesMiddleware': 723,
     'scrapy_splash.SplashMiddleware': 725,
     'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810
@@ -74,14 +75,14 @@ ITEM_PIPELINES = {
     'taobao.pipelines.ProxyPipeline': 301,
 
 }
-SPLASH_URL = 'http://192.168.3.14:8050/'
+SPLASH_URL = 'http://192.168.3.27:8050/'
 DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
 HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
 #DOWNLOAD_TIMEOUT = 30
 RETRY_ENABLED = False
 
 DEFAULT_REQUEST_HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36'
+    'User-Agent': 'User-Agent:Mozilla/5.0 (Windows NT 10.0; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0'
 }
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html

@@ -12,6 +12,7 @@ class TaobaoItem(scrapy.Item):
     sku = scrapy.Field()
     title = scrapy.Field()
     property = scrapy.Field()
+    category = scrapy.Field()
     descript = scrapy.Field()
     img_url = scrapy.Field()
 

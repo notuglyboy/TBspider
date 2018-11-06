@@ -19,22 +19,6 @@ import random
 import time
 from multiprocessing import Queue
 
-
-class windowd_pool:
-    def __init__(self, browser):
-        self.browser = browser
-        self.handles = self.browser.window_handles
-        self.windows_queue = Queue()
-        for handle in self.handles:
-            self.windows_queue.put(handle)
-
-    def get_windows(self):
-        return self.windows_queue.get()
-
-    def release_windows(self, windows):
-        self.windows_queue.put(windows)
-
-
 class TaobaoDownloaderMiddleware(object):
     replace_lazy_script = '''
         var img_array = document.getElementsByTagName('img');
@@ -44,23 +28,7 @@ class TaobaoDownloaderMiddleware(object):
         }
     '''
     def __init__(self):
-        self.chrome_options = Options()
-        self.chrome_options.add_argument('--headless')
-        self.chrome_options.add_argument('--disable-gpu')
-
-        #self.chrome_options.add_argument("--proxy-server=http://171.221.239.11:808")
-        self.browser = webdriver.Chrome(chrome_options=self.chrome_options)
-        self.wait = WebDriverWait(self.browser, 20)
-        self.conn = redis.StrictRedis(host='127.0.0.1', port=6379)
-        self.proxy_list = list(self.conn.hgetall('proxyip').keys())
-        self.action = ActionChains(self.browser)
-        time.sleep(6)
-        self.windows_poll = windowd_pool(self.browser)
-
-    def get_random_proxy(self):
-        list_len = len(self.proxy_list)
-        list_index = random.randint(0, list_len-1)
-        return self.proxy_list[list_index].decode('utf8')
+        self.test_content = open('.testsource', 'r')
 
     @classmethod
     def from_crawler(cls, crawler):
@@ -71,43 +39,7 @@ class TaobaoDownloaderMiddleware(object):
 
     def process_request(self, request, spider):
         if spider.name in ('taobao', ):
-            random_time = random.randint(1, 10)
-            time.sleep(random_time)
-            windows_handle = self.windows_poll.get_windows()
-            self.browser.switch_to.window(windows_handle)
-            self.browser.get(request.url)
-            if request.meta.get('loop_category', None):
-                cateitem = self.browser.find_element_by_xpath('/html/body/div[4]/div[1]/div[1]/div[1]/div/ul/li')
-                self.action.move_to_element(cateitem)
-                self.action.perform()
-                time.sleep(2)
-                self.wait.until(lambda x: x.find_elements_by_xpath('/html/body/div[4]/div[1]/div[1]/div[1]/div/div/div[1]/div[1]/div[1]/p/a[1]'))
-            elif request.meta.get('loop_goods', None):
-                self.wait.until(lambda x: x.find_elements_by_xpath('//*[@id="listsrp-itemlist"]'))
-            elif request.meta.get('get_data', None):
-                self.wait.until(lambda x: x.find_elements_by_xpath('//*[@id="description"]/div'))
-                bottom = self.browser.find_element_by_xpath('//*[@class="tb-price-spec"]')
-                self.action.move_to_element(bottom)
-                self.action.perform()
-                self.browser.execute_script(self.replace_lazy_script)
-                time.sleep(2)
-            else:
-                try:
-                    '''
-                    proxy = webdriver.Proxy()
-                    proxy.proxy_type = ProxyType.MANUAL
-                    proxy_addr = self.get_random_proxy()
-                    proxy.http_proxy = proxy_addr
-                    print('get proxy is ' + proxy_addr)
-                    proxy.add_to_capabilities(webdriver.DesiredCapabilities.CHROME)
-                    self.browser.start_session(webdriver.DesiredCapabilities.CHROME)
-                    '''
-
-                    #self.wait.until(lambda x: x.find_elements_by_xpath('//*[@id="listsrp-itemlist"]'))
-                except TimeoutError:
-                    return request
-            page_source = self.browser.page_source
-            self.windows_poll.release_windows(windows_handle)
+            page_source = self.test_content.read()
             return HtmlResponse(url=request.url, body=page_source, request=request, status=200, encoding='utf-8')
 
     def process_response(self, request, response, spider):
@@ -120,6 +52,7 @@ class TaobaoDownloaderMiddleware(object):
             return request
 
     def spider_opened(self, spider):
+        self.test_content.close()
         spider.logger.info('Spider opened: %s' % spider.name)
 
 
@@ -141,3 +74,19 @@ class ProxyDownloaderMiddleware(object):
             print(exception)
             request.meta['is_exception'] = 'True'
             return TextResponse(url=request.meta['proxy'], body='exception', encoding='utf8', request=request)
+
+
+class LocalDataMiddleware(object):
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        if crawler.spider.name == 'LocalSpider':
+            s = cls()
+            return s
+
+    def process_request(self, request, spider):
+        if spider.name in ('LocalSpider',) and request.meta['splash']['args']['action'] == 'loop_goods':
+            f = open(request.meta['splash']['args']['file'], 'r', encoding='utf8')
+            page_source = f.read()
+            return HtmlResponse(url=request.url, body=page_source, request=request, status=200, encoding='utf-8')
+
